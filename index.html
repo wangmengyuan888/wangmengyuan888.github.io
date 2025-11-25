@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengyuan Wang | Researcher</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .fade-in { animation: fadeIn 0.8s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-300 antialiased selection:bg-indigo-500 selection:text-white">
+
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 glass-card border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-xl font-bold text-white tracking-wider">WMY<span class="text-indigo-400">.</span></a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8" id="nav-links">
+                        </div>
+                </div>
+                <div>
+                    <button onclick="toggleLanguage()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-1.5 rounded-full text-sm font-medium transition-colors border border-indigo-500 shadow-lg shadow-indigo-500/20">
+                        <i class="fa-solid fa-language mr-1"></i> <span id="lang-btn-text">中文</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="pt-32 pb-20 min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl -z-10"></div>
+
+        <div class="max-w-4xl mx-auto px-4 text-center fade-in">
+            <div class="relative inline-block mb-8 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                <img src="./image.jpg" alt="Profile" class="relative w-32 h-32 rounded-full border-2 border-slate-800 bg-slate-800 object-cover transform transition duration-500 hover:scale-105">
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+                <span id="hero-name"></span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed" id="hero-bio">
+            </p>
+            
+            <div class="flex justify-center space-x-4 mb-12">
+                <a href="mailto:wangmengyuan@neau.edu.cn" class="glass-card hover:bg-slate-800 text-white px-6 py-3 rounded-lg transition-all hover:-translate-y-1">
+                    <i class="fa-solid fa-envelope mr-2"></i> Email
+                </a>
+                <a href="https://github.com/wangmengyuan888" target="_blank" class="glass-card hover:bg-slate-800 text-white px-6 py-3 rounded-lg transition-all hover:-translate-y-1">
+                    <i class="fa-brands fa-github mr-2"></i> GitHub
+                </a>
+            </div>
+
+            <div class="inline-flex items-center px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700 text-sm">
+                <span class="flex h-2 w-2 relative mr-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span id="current-status-text"></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
+                <span class="w-2 h-8 bg-indigo-500 rounded mr-4"></span>
+                <span id="section-about-title">About Me</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-card p-8 rounded-2xl">
+                    <h3 class="text-xl font-bold text-indigo-400 mb-6 flex items-center">
+                        <i class="fa-solid fa-graduation-cap mr-3"></i> <span id="edu-title">Education</span>
+                    </h3>
+                    <div class="space-y-8 relative border-l border-slate-700 ml-3 pl-8 pb-2">
+                        <div class="relative">
+                            <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-slate-900 bg-indigo-500"></span>
+                            <div class="text-white font-bold text-lg" id="edu-master-school">Jilin University</div>
+                            <div class="text-slate-400 text-sm mb-1" id="edu-master-time">2026.09 - Present (Incoming)</div>
+                            <div class="text-slate-300" id="edu-master-major">M.S. in Software Engineering</div>
+                            <div class="text-slate-500 text-sm mt-2" id="edu-master-lab">Lab: AVC Lab (Affective Visual Computing)</div>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-slate-900 bg-slate-600"></span>
+                            <div class="text-white font-bold text-lg" id="edu-bachelor-school">Northeast Agricultural University</div>
+                            <div class="text-slate-400 text-sm mb-1" id="edu-bachelor-time">2022.09 - 2026.06</div>
+                            <div class="text-slate-300" id="edu-bachelor-major">B.E. in Software Engineering</div>
+                            <div class="text-slate-500 text-sm mt-2" id="edu-bachelor-gpa">GPA: 4.09/5.0 (Rank 1/61)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="glass-card p-8 rounded-2xl h-full">
+                        <h3 class="text-xl font-bold text-pink-400 mb-4 flex items-center">
+                            <i class="fa-solid fa-microchip mr-3"></i> <span id="research-title">Research Interests</span>
+                        </h3>
+                        <p class="text-slate-400 mb-6 leading-relaxed" id="research-desc">
+                            </p>
+                        <div class="flex flex-wrap gap-2" id="tech-tags">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
+                <span class="w-2 h-8 bg-purple-500 rounded mr-4"></span>
+                <span id="section-projects-title">Selected Projects</span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-8" id="project-container">
+                </div>
+        </div>
+    </section>
+
+    <section id="awards" class="py-20 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
+                <span class="w-2 h-8 bg-yellow-500 rounded mr-4"></span>
+                <span id="section-awards-title">Honors & Awards</span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6" id="awards-container">
+                </div>
+        </div>
+    </section>
+
+    <footer class="py-8 border-t border-slate-800 text-center">
+        <p class="text-slate-500 text-sm">
+            © <span id="year"></span> Mengyuan Wang. All Rights Reserved.
+        </p>
+        <p class="text-slate-600 text-xs mt-2">
+            <span id="last-updated-label">Last Updated:</span> <span id="last-updated-date" class="font-mono text-indigo-500"></span>
+        </p>
+    </footer>
+
+    <script>
+        const data = {
+            en: {
+                nav: { home: "Home", about: "About", projects: "Projects", awards: "Awards" },
+                hero: {
+                    name: "Mengyuan Wang",
+                    // 修改点1：Hero 部分使用 Research Agents
+                    bio: "Undergraduate @ NEAU ➔ Incoming Master's Student @ Jilin University.<br>Focusing on <b>Agentic AI</b> (e.g., Research Agent) and <b>Computer Vision</b>.", 
+                    status: "Now delving into the Research Agent based on the Agent Laboratory." 
+                },
+                sections: {
+                    about: "About Me",
+                    edu: "Education",
+                    research: "Research Interests",
+                    projects: "Projects",
+                    awards: "Honors & Awards"
+                },
+                edu: {
+                    master: { school: "Jilin University", degree: "M.S. in Software Engineering (Academic)", lab: "Lab: AVC Lab (Affective Visual Computing)" },
+                    bachelor: { school: "Northeast Agricultural University (211)", degree: "B.E. in Software Engineering", gpa: "GPA: 4.09 (Rank 1/61)" }
+                },
+                // 修改点2：研究兴趣描述中使用 Agentic AI
+                researchDesc: "My previous work focused on Computer Vision (Object Detection/ReID) and Speech Synthesis. Currently, my passion lies in <b>Agentic AI</b>, specifically designing intelligent systems capable of automating scientific research workflows.", 
+                // 修改点3：Tags 使用 Agentic AI
+                tags: ["Agentic AI", "Computer Vision", "YOLO", "Pytorch", "Vue/SpringBoot"], 
+                projects: [
+                    {
+                        title: "Cow Individual Identification System Based on Deep Visual Models",
+                        tech: "YOLOv8-OBB | FastReID | AdaSP Loss",
+                        desc: "A hybrid framework fusing rotated object detection and adaptive re-identification for precision livestock management. Achieved 97.30% Rank-1 Accuracy.",
+                        link: "#"
+                    },
+                    {
+                        title: "VITS End-to-End Speech Synthesis",
+                        tech: "VITS | GAN | Variational Inference",
+                        desc: "Fine-tuned VITS model on a self-constructed multi-speaker Chinese dataset. Achieved a MOS of 4.0, implementing real-time TTS inference via Flask.",
+                        link: "#"
+                    }
+                ],
+                awards: [
+                    "National Scholarship (Top 0.2%)",
+                    "National Endeavor Scholarship",
+                    "1st Prize, National Math Modeling (Provincial)",
+                    "1st Prize, Math Modeling League (Northeast)",
+                    "Blue Bridge Cup C/C++ (Provincial 2nd)",
+                    "Silver, NEAU Programming Contest"
+                ],
+                footer: { updated: "Last Updated:" }
+            },
+
+            zh: {
+                nav: { home: "首页", about: "关于", projects: "项目", awards: "奖项" },
+                hero: {
+                    name: "王梦圆",
+                    // 修改点4：中文简介中使用 Research Agent (对应英文)
+                    bio: "东北农业大学本科生 ➔ 吉林大学 软件学院 硕士研究生 (2026级)<br>专注于 <b>Agentic AI(eg.Research Agent)</b> 与计算机视觉", 
+                    status: "目前正在钻研基于 Agent Laboratory 的科研智能体"
+                },
+                sections: {
+                    about: "关于我",
+                    edu: "教育背景",
+                    research: "研究兴趣",
+                    projects: "科研项目",
+                    awards: "荣誉奖项"
+                },
+                edu: {
+                    master: { school: "吉林大学", degree: "软件工程 学术型硕士", lab: "实验室: AVC Lab (情感视觉计算实验室)" },
+                    bachelor: { school: "东北农业大学 (211工程)", degree: "工学学士 - 软件工程", gpa: "GPA: 4.09 (综测/成绩双第一)" }
+                },
+                // 修改点5：中文研究兴趣描述保持 Agentic AI
+                researchDesc: "我之前的研究基础在于计算机视觉（目标检测/ReID）和语音合成（VITS）。目前，我的核心兴趣转向 <b>Agentic AI</b>，致力于设计能够自主进行科学研究的智能体系统。", 
+                // 修改点6：中文 Tags 保持 Agentic AI
+                tags: ["Agentic AI", "计算机视觉", "YOLO", "Pytorch", "Vue/SpringBoot"], 
+                projects: [
+                    {
+                        title: "基于深度视觉模型的奶牛个体身份识别系统",
+                        tech: "YOLOv8-OBB | FastReID | AdaSP Loss",
+                        desc: "提出了融合旋转目标检测与自适应重识别的混合框架。在奶牛个体识别任务上首命中率达到 97.30%，mAP 达到 95.02%。",
+                        link: "#"
+                    },
+                    {
+                        title: "基于 VITS 的语音合成系统",
+                        tech: "VITS | 对抗生成网络 | 变分推断",
+                        desc: "基于喜马拉雅数据构建数据集，微调 VITS 模型。实现了端到端的高自然度中文语音合成，MOS 得分达到 4.0。",
+                        link: "#"
+                    }
+                ],
+                awards: [
+                    "国家奖学金",
+                    "国家励志奖学金",
+                    "全国大学生数学建模竞赛 省级一等奖",
+                    "东三省数学建模联赛 一等奖",
+                    "蓝桥杯C/C++程序设计 省级二等奖",
+                    "东北农业大学程序设计竞赛 银奖"
+                ],
+                footer: { updated: "最后更新于：" }
+            }
+        };
+
+        let currentLang = 'en'; 
+
+        function updatePage() {
+            const content = data[currentLang];
+            
+            const navHtml = `
+                <a href="#home" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.home}</a>
+                <a href="#about" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.about}</a>
+                <a href="#projects" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.projects}</a>
+                <a href="#awards" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.awards}</a>
+            `;
+            document.getElementById('nav-links').innerHTML = navHtml;
+            document.getElementById('lang-btn-text').textContent = currentLang === 'en' ? '中文' : 'EN';
+
+            document.getElementById('hero-name').innerHTML = `<span class="gradient-text">${content.hero.name}</span>`;
+            document.getElementById('hero-bio').innerHTML = content.hero.bio;
+            document.getElementById('current-status-text').textContent = content.hero.status;
+
+            document.getElementById('section-about-title').textContent = content.sections.about;
+            document.getElementById('section-projects-title').textContent = content.sections.projects;
+            document.getElementById('section-awards-title').textContent = content.sections.awards;
+            document.getElementById('edu-title').textContent = content.sections.edu;
+            document.getElementById('research-title').textContent = content.sections.research;
+
+            document.getElementById('edu-master-school').textContent = content.edu.master.school;
+            document.getElementById('edu-master-major').textContent = content.edu.master.degree;
+            document.getElementById('edu-master-lab').textContent = content.edu.master.lab;
+            
+            document.getElementById('edu-bachelor-school').textContent = content.edu.bachelor.school;
+            document.getElementById('edu-bachelor-major').textContent = content.edu.bachelor.degree;
+            document.getElementById('edu-bachelor-gpa').textContent = content.edu.bachelor.gpa;
+
+            document.getElementById('research-desc').innerHTML = content.researchDesc;
+            document.getElementById('tech-tags').innerHTML = content.tags.map(tag => 
+                `<span class="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs text-indigo-300">${tag}</span>`
+            ).join('');
+
+            document.getElementById('project-container').innerHTML = content.projects.map(p => `
+                <div class="glass-card rounded-2xl p-6 hover:bg-slate-800/80 transition-all duration-300 group hover:-translate-y-2 border-t-4 border-t-transparent hover:border-t-indigo-500">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-indigo-400 transition-colors">${p.title}</h3>
+                        <a href="${p.link}" class="text-slate-500 hover:text-white"><i class="fa-brands fa-github text-xl"></i></a>
+                    </div>
+                    <div class="text-xs font-mono text-purple-400 mb-4 bg-purple-500/10 inline-block px-2 py-1 rounded">${p.tech}</div>
+                    <p class="text-slate-400 text-sm leading-relaxed">${p.desc}</p>
+                </div>
+            `).join('');
+
+            document.getElementById('awards-container').innerHTML = content.awards.map(a => `
+                <div class="glass-card p-4 rounded-xl flex items-center space-x-4 hover:bg-slate-800 transition-colors">
+                    <div class="bg-yellow-500/10 p-3 rounded-full text-yellow-500">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <span class="text-slate-300 font-medium text-sm">${a}</span>
+                </div>
+            `).join('');
+
+            document.getElementById('last-updated-label').textContent = content.footer.updated;
+            document.getElementById('year').textContent = new Date().getFullYear();
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'zh' : 'en';
+            updatePage();
+        }
+
+        updatePage();
+        
+        const date = new Date(document.lastModified);
+        const year = date.getFullYear();
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, '0');
+        const autoDate = `${year}-${month}-${day}`;
+        document.getElementById('last-updated-date').textContent = autoDate;
+
+    </script>
+</body>
+</html>
