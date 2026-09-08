@@ -70,13 +70,6 @@
                 </a>
             </div>
 
-            <div class="inline-flex items-center px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700 text-sm">
-                <span class="flex h-2 w-2 relative mr-3">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-                <span id="current-status-text"></span>
-            </div>
         </div>
     </section>
 
@@ -96,14 +89,14 @@
                         <div class="relative">
                             <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-slate-900 bg-indigo-500"></span>
                             <div class="text-white font-bold text-lg" id="edu-master-school">Jilin University</div>
-                            <div class="text-slate-400 text-sm mb-1" id="edu-master-time">2026.09 - Present (Incoming)</div>
-                            <div class="text-slate-300" id="edu-master-major">M.S. in Software Engineering</div>
+                            <div class="text-slate-400 text-sm mb-1" id="edu-master-time">2026.09 - Present (First Year)</div>
+                            <div class="text-slate-300" id="edu-master-major">Academic M.S. in Software Engineering</div>
                             <div class="text-slate-500 text-sm mt-2" id="edu-master-lab">Lab: AVC Lab (Affective Visual Computing)</div>
                         </div>
                         <div class="relative">
                             <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-slate-900 bg-slate-600"></span>
                             <div class="text-white font-bold text-lg" id="edu-bachelor-school">Northeast Agricultural University</div>
-                            <div class="text-slate-400 text-sm mb-1" id="edu-bachelor-time">2022.09 - 2026.06</div>
+                            <div class="text-slate-400 text-sm mb-1" id="edu-bachelor-time">2022.09 - 2026.06 (Graduated)</div>
                             <div class="text-slate-300" id="edu-bachelor-major">B.E. in Software Engineering</div>
                             <div class="text-slate-500 text-sm mt-2" id="edu-bachelor-gpa">GPA: 4.09/5.0 (Rank 1/61)</div>
                         </div>
@@ -163,9 +156,8 @@
                 nav: { home: "Home", about: "About", projects: "Projects", awards: "Awards" },
                 hero: {
                     name: "Mengyuan Wang",
-                    // 修改点1：Hero 部分使用 Research Agents
-                    bio: "Undergraduate @ NEAU ➔ Incoming Master's Student @ Jilin University.<br>Focusing on <b>Agentic AI</b> (e.g., Research Agent) and <b>Computer Vision</b>.", 
-                    status: "Now delving into the Research Agent based on the Agent Laboratory." 
+                    bio: "Graduate of Northeast Agricultural University ➔ First-year Academic Master's Student in Software Engineering at Jilin University.<br>Research interests: <b>Computer Vision</b> and <b>Embodied AI</b>.",
+                    status: ""
                 },
                 sections: {
                     about: "About Me",
@@ -175,13 +167,11 @@
                     awards: "Honors & Awards"
                 },
                 edu: {
-                    master: { school: "Jilin University", degree: "M.S. in Software Engineering (Academic)", lab: "Lab: AVC Lab (Affective Visual Computing)" },
-                    bachelor: { school: "Northeast Agricultural University (211)", degree: "B.E. in Software Engineering", gpa: "GPA: 4.09 (Rank 1/61)" }
+                    master: { school: "Jilin University", time: "2026.09 - Present (First Year)", degree: "Academic M.S. in Software Engineering (First Year)", lab: "School of Software" },
+                    bachelor: { school: "Northeast Agricultural University (211)", time: "2022.09 - 2026.06 (Graduated)", degree: "B.E. in Software Engineering (Graduated)", gpa: "GPA: 4.09 (Rank 1/61)" }
                 },
-                // 修改点2：研究兴趣描述中使用 Agentic AI
-                researchDesc: "My previous work focused on Computer Vision (Object Detection/ReID) and Speech Synthesis. Currently, my passion lies in <b>Agentic AI</b>, specifically designing intelligent systems capable of automating scientific research workflows.", 
-                // 修改点3：Tags 使用 Agentic AI
-                tags: ["Agentic AI", "Computer Vision", "YOLO", "Pytorch", "Vue/SpringBoot"], 
+                researchDesc: "My research focuses on <b>Computer Vision</b> and <b>Embodied AI</b>.",
+                tags: ["Computer Vision", "Embodied AI"],
                 projects: [
                     {
                         title: "Cow Individual Identification System Based on Deep Visual Models",
@@ -211,9 +201,8 @@
                 nav: { home: "首页", about: "关于", projects: "项目", awards: "奖项" },
                 hero: {
                     name: "王梦圆",
-                    // 修改点4：中文简介中使用 Research Agent (对应英文)
-                    bio: "东北农业大学本科生 ➔ 吉林大学 软件学院 硕士研究生 (2026级)<br>专注于 <b>Agentic AI(eg.Research Agent)</b> 与<b>计算机视觉</b>", 
-                    status: "目前正在钻研基于 Agent Laboratory 的科研智能体"
+                    bio: "东北农业大学毕业生 ➔ 吉林大学软件学院软件工程学术型硕士一年级。<br>研究方向：<b>计算机视觉</b>与<b>具身智能</b>。",
+                    status: ""
                 },
                 sections: {
                     about: "关于我",
@@ -223,13 +212,11 @@
                     awards: "荣誉奖项"
                 },
                 edu: {
-                    master: { school: "吉林大学", degree: "软件工程 学术型硕士", lab: "实验室: AVC Lab (情感视觉计算实验室)" },
-                    bachelor: { school: "东北农业大学 (211工程)", degree: "工学学士 - 软件工程", gpa: "GPA: 4.09 (综测/成绩双第一)" }
+                    master: { school: "吉林大学", time: "2026.09 - 至今（一年级）", degree: "软件工程学术型硕士（一年级）", lab: "软件学院" },
+                    bachelor: { school: "东北农业大学（211工程）", time: "2022.09 - 2026.06（已毕业）", degree: "软件工程工学学士（已毕业）", gpa: "GPA: 4.09（综测/成绩双第一）" }
                 },
-                // 修改点5：中文研究兴趣描述保持 Agentic AI
-                researchDesc: "我之前的研究基础在于计算机视觉（目标检测/ReID）和语音合成（VITS）。目前，我的核心兴趣转向 <b>Agentic AI</b>，致力于设计能够自主进行科学研究的智能体系统。", 
-                // 修改点6：中文 Tags 保持 Agentic AI
-                tags: ["Agentic AI", "计算机视觉", "YOLO", "Pytorch", "Vue/SpringBoot"], 
+                researchDesc: "我的研究方向为<b>计算机视觉</b>与<b>具身智能</b>。",
+                tags: ["计算机视觉", "具身智能"],
                 projects: [
                     {
                         title: "基于深度视觉模型的奶牛个体身份识别系统",
@@ -272,8 +259,6 @@
 
             document.getElementById('hero-name').innerHTML = `<span class="gradient-text">${content.hero.name}</span>`;
             document.getElementById('hero-bio').innerHTML = content.hero.bio;
-            document.getElementById('current-status-text').textContent = content.hero.status;
-
             document.getElementById('section-about-title').textContent = content.sections.about;
             document.getElementById('section-projects-title').textContent = content.sections.projects;
             document.getElementById('section-awards-title').textContent = content.sections.awards;
@@ -281,10 +266,12 @@
             document.getElementById('research-title').textContent = content.sections.research;
 
             document.getElementById('edu-master-school').textContent = content.edu.master.school;
+            document.getElementById('edu-master-time').textContent = content.edu.master.time;
             document.getElementById('edu-master-major').textContent = content.edu.master.degree;
             document.getElementById('edu-master-lab').textContent = content.edu.master.lab;
             
             document.getElementById('edu-bachelor-school').textContent = content.edu.bachelor.school;
+            document.getElementById('edu-bachelor-time').textContent = content.edu.bachelor.time;
             document.getElementById('edu-bachelor-major').textContent = content.edu.bachelor.degree;
             document.getElementById('edu-bachelor-gpa').textContent = content.edu.bachelor.gpa;
 
