@@ -7,37 +7,66 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .gradient-text {
-            background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .fade-in { animation: fadeIn 0.8s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap');
+        :root { --ink:#183b3b; --accent:#087f78; --line:#dce9e6; }
+        body { font-family:'Manrope','Noto Sans SC',sans-serif; background:#fbfdfc; color:var(--ink); }
+        .glass-card { background:rgba(255,255,255,.94); border:1px solid var(--line); box-shadow:0 8px 30px #173f3c05; }
+        nav.glass-card { background:rgba(251,253,252,.95); backdrop-filter:blur(14px); }
+        .gradient-text { color:var(--ink); }
+        h1,h2,h3 { letter-spacing:-.035em; }
+        h2 { color:var(--ink); }
+        section { scroll-margin-top:88px; }
+        a,button { -webkit-tap-highlight-color:transparent; }
+        a:focus-visible,button:focus-visible { outline:3px solid #0d9488; outline-offset:5px; }
+        .language-button { color:white; box-shadow:none; border:0; }
+        #home { min-height:760px; min-height:92svh; padding:148px 24px 88px; background:radial-gradient(ellipse at 85% 45%,#e1f5ee 0,transparent 48%); }
+        .hero-layout { max-width:1152px; margin:auto; display:grid; grid-template-columns:1.2fr 1fr; gap:52px; align-items:center; width:100%; }
+        .hero-copy { text-align:left; }
+        .profile-row { display:flex; align-items:center; gap:18px; margin-bottom:30px; }
+        .profile-row img { width:64px; height:64px; border-radius:50%; object-fit:cover; border:3px solid white; box-shadow:0 0 0 1px var(--line); }
+        .eyebrow { font-size:11px; font-weight:800; letter-spacing:.18em; color:var(--accent); }
+        .profile-caption { font-size:13px; color:#59716c; margin-top:7px; }
+        #hero-name { display:block; }
+        #hero-bio { font-size:17px; line-height:1.95; max-width:590px; margin:0 0 30px; }
+        #hero-bio b { color:var(--accent); font-weight:700; }
+        .hero-links { display:flex; flex-wrap:wrap; gap:10px; }
+        .hero-links a { padding:12px 15px; font-size:13px; border-radius:12px; }
+        .hero-links a:first-child { background:var(--accent); color:white; border-color:var(--accent); }
+        .robot-stage { position:relative; width:100%; max-width:450px; aspect-ratio:1; margin:auto; border:1px solid #d8e9e2; border-radius:36px; background-color:#f1f8f4; background-image:radial-gradient(#bcd9ce 1px,transparent 1px); background-size:22px 22px; overflow:hidden; }
+        .robot-stage:before { content:''; position:absolute; inset:54px; border:1px solid #cee1d7; border-radius:50%; }
+        .robot-stage svg { position:absolute; inset:36px 22px; width:calc(100% - 44px); height:calc(100% - 72px); }
+        .robot-label { position:absolute; top:22px; left:24px; font-size:10px; letter-spacing:.14em; color:#477468; font-weight:700; }
+        .robot-caption { position:absolute; bottom:22px; left:24px; right:24px; display:flex; justify-content:space-between; gap:10px; font-size:10px; color:#477468; letter-spacing:.09em; }
+        .robot-eyes { transform-box:fill-box; transform-origin:center; animation:blink 6s infinite; }
+        .robot-hand { transform-origin:282px 217px; animation:wave 7s ease-in-out infinite; }
+        .robot-body { animation:float 6s ease-in-out infinite; }
+        @keyframes blink { 0%,43%,47%,100% { transform:scaleY(1); } 45% { transform:scaleY(.12); } }
+        @keyframes wave { 0%,65%,100% { transform:rotate(0); } 70%,80% { transform:rotate(-13deg); } 75%,85% { transform:rotate(5deg); } }
+        @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-5px); } }
+        .fade-in { animation:fadeIn .7s ease-out both; }
+        @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+        #project-container>div { border-top:3px solid #b3d9cf; }
+        #key-awards-container>div { box-shadow:none; }
+        #all-awards .glass-card { box-shadow:none; }
+        @media(max-width:767px) { #home { min-height:auto; padding:116px 20px 64px; } .hero-layout { grid-template-columns:1fr; gap:40px; } .hero-copy { text-align:center; } .profile-row,.hero-links { justify-content:center; } #hero-bio { font-size:16px; } .robot-stage { max-width:330px; border-radius:28px; } }
+        @media(max-width:767px) { nav .nav-row { height:auto; min-height:64px; flex-wrap:wrap; padding-top:12px; } nav .nav-menu { order:3; width:100%; overflow-x:auto; padding:7px 0; } #nav-links { margin-left:0; gap:4px; justify-content:space-between; } #nav-links a { margin-left:0!important; white-space:nowrap; padding:8px 5px; font-size:12px; } #home { padding-top:150px; } section { scroll-margin-top:120px; } }
+        @media(prefers-reduced-motion:reduce) { *,*:before,*:after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-300 antialiased selection:bg-indigo-500 selection:text-white">
+<body class="bg-white text-slate-700 antialiased selection:bg-teal-200 selection:text-teal-900">
 
     <nav class="fixed w-full z-50 top-0 transition-all duration-300 glass-card border-b border-white/5">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="nav-row flex justify-between items-center h-16">
                 <div class="flex-shrink-0">
-                    <a href="#" class="text-xl font-bold text-white tracking-wider">WMY<span class="text-indigo-400">.</span></a>
+                    <a href="#" class="text-xl font-bold text-slate-900 tracking-wider">WMY<span class="text-teal-700">.</span></a>
                 </div>
-                <div class="hidden md:block">
+                <div class="nav-menu">
                     <div class="ml-10 flex items-baseline space-x-8" id="nav-links">
                         </div>
                 </div>
                 <div>
-                    <button onclick="toggleLanguage()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-1.5 rounded-full text-sm font-medium transition-colors border border-indigo-500 shadow-lg shadow-indigo-500/20">
+                    <button onclick="toggleLanguage()" class="language-button bg-teal-700 hover:bg-teal-800 text-white px-4 py-1.5 rounded-full text-sm font-medium transition-colors border border-teal-600 shadow-lg shadow-indigo-500/20">
                         <i class="fa-solid fa-language mr-1"></i> <span id="lang-btn-text">中文</span>
                     </button>
                 </div>
@@ -45,76 +74,89 @@
         </div>
     </nav>
 
-    <section id="home" class="pt-32 pb-20 min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl -z-10"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl -z-10"></div>
-
-        <div class="max-w-4xl mx-auto px-4 text-center fade-in">
-            <div class="relative inline-block mb-8 group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-                <img src="./image.jpg" alt="Profile" class="relative w-32 h-32 rounded-full border-2 border-slate-800 bg-slate-800 object-cover transform transition duration-500 hover:scale-105">
+    <section id="home">
+        <div class="hero-layout fade-in">
+            <div class="hero-copy">
+                <div class="profile-row">
+                    <img src="./image.jpg" alt="Mengyuan Wang">
+                    <div><div class="eyebrow">MENGYUAN WANG / RESEARCH</div><div class="profile-caption" id="hero-affiliation">Software Engineering · Jilin University</div></div>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight"><span id="hero-name"></span></h1>
+                <p id="hero-bio" class="text-slate-600"></p>
+                <div class="hero-links">
+                    <a href="mailto:mengyuanw26@mails.jlu.edu.cn" class="glass-card transition-all hover:-translate-y-1"><i class="fa-solid fa-envelope mr-2" aria-hidden="true"></i>JLU Email</a>
+                    <a href="mailto:mengyuanwang374@gmail.com" class="glass-card transition-all hover:-translate-y-1"><i class="fa-brands fa-google mr-2" aria-hidden="true"></i>Gmail</a>
+                    <a href="https://github.com/wangmengyuan888" target="_blank" rel="noopener noreferrer" class="glass-card transition-all hover:-translate-y-1"><i class="fa-brands fa-github mr-2" aria-hidden="true"></i>GitHub</a>
+                    <a href="https://github.com/wangmengyuan888/group-meeting-presentations" target="_blank" rel="noopener noreferrer" class="glass-card transition-all hover:-translate-y-1"><i class="fa-solid fa-chalkboard-user mr-2" aria-hidden="true"></i><span id="group-meeting-label">Group Meeting</span></a>
+                </div>
             </div>
-            
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
-                <span id="hero-name"></span>
-            </h1>
-            <p class="text-xl md:text-2xl text-slate-400 mb-8 max-w-2xl mx-auto leading-relaxed" id="hero-bio">
-            </p>
-            
-            <div class="flex justify-center space-x-4 mb-12 flex-wrap gap-3">
-                <a href="mailto:mengyuanw26@mails.jlu.edu.cn" class="glass-card hover:bg-slate-800 text-white px-6 py-3 rounded-lg transition-all hover:-translate-y-1">
-                    <i class="fa-solid fa-envelope mr-2"></i> JLU Email
-                </a>
-                <a href="mailto:mengyuanwang374@gmail.com" class="glass-card hover:bg-slate-800 text-white px-6 py-3 rounded-lg transition-all hover:-translate-y-1">
-                    <i class="fa-brands fa-google mr-2"></i> Gmail
-                </a>
-                <a href="https://github.com/wangmengyuan888" target="_blank" class="glass-card hover:bg-slate-800 text-white px-6 py-3 rounded-lg transition-all hover:-translate-y-1">
-                    <i class="fa-brands fa-github mr-2"></i> GitHub
-                </a>
-                <a href="https://github.com/wangmengyuan888/group-meeting-presentations" target="_blank" class="glass-card hover:bg-slate-800 text-white px-6 py-3 rounded-lg transition-all hover:-translate-y-1">
-                    <i class="fa-solid fa-chalkboard-user mr-2"></i> Group Meeting
-                </a>
+            <div class="robot-stage" aria-hidden="true">
+                <span class="robot-label">HELLO, HUMAN.</span>
+                <svg viewBox="0 0 360 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs><linearGradient id="shell" x1="100" y1="90" x2="260" y2="290" gradientUnits="userSpaceOnUse"><stop stop-color="white"/><stop offset="1" stop-color="#d6e9e2"/></linearGradient></defs>
+                    <ellipse cx="182" cy="309" rx="88" ry="12" fill="#bfd9cd" opacity=".5"/>
+                    <g class="robot-body">
+                        <path d="M180 77V53" stroke="#4f8b79" stroke-width="6" stroke-linecap="round"/>
+                        <circle cx="180" cy="45" r="9" fill="#efb45d"/><circle cx="177" cy="42" r="3" fill="#ffe6ba"/>
+                        <rect x="84" y="120" width="18" height="49" rx="9" fill="#8bb7a8"/>
+                        <rect x="258" y="120" width="18" height="49" rx="9" fill="#8bb7a8"/>
+                        <rect x="99" y="80" width="162" height="119" rx="38" fill="url(#shell)" stroke="#83ab9d" stroke-width="2"/>
+                        <rect x="117" y="103" width="126" height="71" rx="24" fill="#204a43"/>
+                        <g class="robot-eyes"><rect x="143" y="122" width="13" height="25" rx="6.5" fill="#a9f0d2"/><rect x="204" y="122" width="13" height="25" rx="6.5" fill="#a9f0d2"/></g>
+                        <path d="M172 150Q180 157 188 150" stroke="#a9f0d2" stroke-width="3" stroke-linecap="round"/>
+                        <rect x="165" y="199" width="30" height="12" rx="5" fill="#77a694"/>
+                        <rect x="128" y="210" width="104" height="72" rx="25" fill="url(#shell)" stroke="#83ab9d" stroke-width="2"/>
+                        <rect x="151" y="232" width="58" height="27" rx="9" fill="#e4f1eb" stroke="#a3c5b6"/>
+                        <circle cx="169" cy="246" r="5" fill="#0c8c76"/><path d="M181 246H195" stroke="#82ac9b" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M128 224Q101 229 101 253" stroke="#89af9e" stroke-width="17" stroke-linecap="round"/>
+                        <circle cx="101" cy="260" r="12" fill="#edf6f0" stroke="#83ab9d" stroke-width="2"/>
+                        <g class="robot-hand"><path d="M232 225Q270 239 282 211" stroke="#89af9e" stroke-width="17" stroke-linecap="round"/><rect x="271" y="181" width="23" height="35" rx="11" fill="#edf6f0" stroke="#83ab9d" stroke-width="2"/><path d="M281 181V172M290 185L297 179" stroke="#83ab9d" stroke-width="5" stroke-linecap="round"/></g>
+                        <path d="M154 283V298M206 283V298" stroke="#89af9e" stroke-width="16" stroke-linecap="round"/>
+                        <rect x="137" y="293" width="35" height="13" rx="6" fill="#edf6f0" stroke="#83ab9d" stroke-width="2"/><rect x="189" y="293" width="35" height="13" rx="6" fill="#edf6f0" stroke="#83ab9d" stroke-width="2"/>
+                    </g>
+                    <path d="M51 84V98M44 91H58M295 102V112M290 107H300" stroke="#9dbdad" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div class="robot-caption"><span>COMPUTER VISION</span><span>EMBODIED AI</span></div>
             </div>
-
         </div>
     </section>
 
-    <section id="about" class="py-20 bg-slate-900/50">
+    <section id="about" class="py-20 bg-slate-50/80">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
-                <span class="w-2 h-8 bg-indigo-500 rounded mr-4"></span>
+            <h2 class="text-3xl font-bold text-slate-900 mb-12 flex items-center">
+                <span class="w-2 h-8 bg-teal-600 rounded mr-4"></span>
                 <span id="section-about-title">About Me</span>
             </h2>
-            
+
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="glass-card p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold text-indigo-400 mb-6 flex items-center">
+                    <h3 class="text-xl font-bold text-teal-700 mb-6 flex items-center">
                         <i class="fa-solid fa-graduation-cap mr-3"></i> <span id="edu-title">Education</span>
                     </h3>
-                    <div class="space-y-8 relative border-l border-slate-700 ml-3 pl-8 pb-2">
+                    <div class="space-y-8 relative border-l border-slate-200 ml-3 pl-8 pb-2">
                         <div class="relative">
-                            <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-slate-900 bg-indigo-500"></span>
-                            <div class="text-white font-bold text-lg" id="edu-master-school">Jilin University</div>
-                            <div class="text-slate-400 text-sm mb-1" id="edu-master-time">2026.09 - Present (First Year)</div>
-                            <div class="text-slate-300" id="edu-master-major">Academic M.S. in Software Engineering</div>
-                            <div class="text-slate-500 text-sm mt-2" id="edu-master-lab">Lab: AVC Lab (Affective Visual Computing)</div>
+                            <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-white bg-teal-600"></span>
+                            <div class="text-slate-900 font-bold text-lg" id="edu-master-school">Jilin University</div>
+                            <div class="text-slate-600 text-sm mb-1" id="edu-master-time">2026.09 - Present (First Year)</div>
+                            <div class="text-slate-700" id="edu-master-major">Academic M.S. in Software Engineering</div>
+                            <div class="text-slate-600 text-sm mt-2" id="edu-master-lab">Lab: AVC Lab (Affective Visual Computing)</div>
                         </div>
                         <div class="relative">
-                            <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-slate-900 bg-slate-600"></span>
-                            <div class="text-white font-bold text-lg" id="edu-bachelor-school">Northeast Agricultural University</div>
-                            <div class="text-slate-400 text-sm mb-1" id="edu-bachelor-time">2022.09 - 2026.06 (Graduated)</div>
-                            <div class="text-slate-300" id="edu-bachelor-major">B.E. in Software Engineering</div>
-                            <div class="text-slate-500 text-sm mt-2" id="edu-bachelor-gpa">GPA: 4.09/5.0 (Rank 1/61)</div>
+                            <span class="absolute -left-[41px] top-1 h-5 w-5 rounded-full border-4 border-white bg-slate-600"></span>
+                            <div class="text-slate-900 font-bold text-lg" id="edu-bachelor-school">Northeast Agricultural University</div>
+                            <div class="text-slate-600 text-sm mb-1" id="edu-bachelor-time">2022.09 - 2026.06 (Graduated)</div>
+                            <div class="text-slate-700" id="edu-bachelor-major">B.E. in Software Engineering</div>
+                            <div class="text-slate-600 text-sm mt-2" id="edu-bachelor-gpa">GPA: 4.09/5.0 (Rank 1/61)</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="space-y-6">
                     <div class="glass-card p-8 rounded-2xl h-full">
-                        <h3 class="text-xl font-bold text-pink-400 mb-4 flex items-center">
+                        <h3 class="text-xl font-bold text-rose-700 mb-4 flex items-center">
                             <i class="fa-solid fa-microchip mr-3"></i> <span id="research-title">Research Interests</span>
                         </h3>
-                        <p class="text-slate-400 mb-6 leading-relaxed" id="research-desc">
+                        <p class="text-slate-600 mb-6 leading-relaxed" id="research-desc">
                             </p>
                         <div class="flex flex-wrap gap-2" id="tech-tags">
                             </div>
@@ -126,8 +168,8 @@
 
     <section id="projects" class="py-20">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
-                <span class="w-2 h-8 bg-purple-500 rounded mr-4"></span>
+            <h2 class="text-3xl font-bold text-slate-900 mb-12 flex items-center">
+                <span class="w-2 h-8 bg-teal-600 rounded mr-4"></span>
                 <span id="section-projects-title">Selected Projects</span>
             </h2>
 
@@ -138,7 +180,7 @@
 
     <section id="key-awards" class="py-20">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
+            <h2 class="text-3xl font-bold text-slate-900 mb-12 flex items-center">
                 <span class="w-2 h-8 bg-yellow-500 rounded mr-4"></span>
                 <span id="section-key-awards-title">Key Honors & Awards</span>
             </h2>
@@ -147,23 +189,23 @@
         </div>
     </section>
 
-    <section id="all-awards" class="py-20 bg-slate-900/50">
+    <section id="all-awards" class="py-20 bg-slate-50/80">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
-                <span class="w-2 h-8 bg-indigo-500 rounded mr-4"></span>
+            <h2 class="text-3xl font-bold text-slate-900 mb-12 flex items-center">
+                <span class="w-2 h-8 bg-teal-600 rounded mr-4"></span>
                 <span id="section-all-awards-title">All Awards</span>
             </h2>
-            <div class="relative border-l-2 border-slate-700 ml-3 pl-8 space-y-8" id="awards-container">
+            <div class="relative border-l-2 border-slate-200 ml-3 pl-8 space-y-8" id="awards-container">
                 </div>
         </div>
     </section>
 
-    <footer class="py-8 border-t border-slate-800 text-center">
-        <p class="text-slate-500 text-sm">
+    <footer class="py-8 border-t border-slate-200 text-center">
+        <p class="text-slate-600 text-sm">
             © <span id="year"></span> Mengyuan Wang. All Rights Reserved.
         </p>
         <p class="text-slate-600 text-xs mt-2">
-            <span id="last-updated-label">Last Updated:</span> <span id="last-updated-date" class="font-mono text-indigo-500"></span>
+            <span id="last-updated-label">Last Updated:</span> <span id="last-updated-date" class="font-mono text-teal-700"></span>
         </p>
     </footer>
 
@@ -236,11 +278,11 @@
                     { time: "2023.06", title: "3rd Prize, NEAU Mathematics Competition (7th)", category: "University" },
                 ],
                 awardCategories: {
-                    Scholarship: { label: "Scholarship", color: "bg-yellow-500/20 text-yellow-400" },
-                    Honor: { label: "Honor", color: "bg-pink-500/20 text-pink-400" },
-                    National: { label: "National", color: "bg-purple-500/20 text-purple-400" },
-                    Provincial: { label: "Provincial", color: "bg-blue-500/20 text-blue-400" },
-                    University: { label: "University", color: "bg-green-500/20 text-green-400" },
+                    Scholarship: { label: "Scholarship", color: "bg-amber-100 text-amber-800" },
+                    Honor: { label: "Honor", color: "bg-rose-100 text-rose-700" },
+                    National: { label: "National", color: "bg-teal-100 text-teal-700" },
+                    Provincial: { label: "Provincial", color: "bg-sky-100 text-sky-700" },
+                    University: { label: "University", color: "bg-emerald-100 text-emerald-700" },
                 },
                 footer: { updated: "Last Updated:" }
             },
@@ -312,27 +354,30 @@
                     { time: "2023.06", title: "第七届东北农业大学数学竞赛三等奖", category: "University" },
                 ],
                 awardCategories: {
-                    Scholarship: { label: "奖学金", color: "bg-yellow-500/20 text-yellow-400" },
-                    Honor: { label: "荣誉称号", color: "bg-pink-500/20 text-pink-400" },
-                    National: { label: "国家级竞赛", color: "bg-purple-500/20 text-purple-400" },
-                    Provincial: { label: "省级竞赛", color: "bg-blue-500/20 text-blue-400" },
-                    University: { label: "校级竞赛", color: "bg-green-500/20 text-green-400" },
+                    Scholarship: { label: "奖学金", color: "bg-amber-100 text-amber-800" },
+                    Honor: { label: "荣誉称号", color: "bg-rose-100 text-rose-700" },
+                    National: { label: "国家级竞赛", color: "bg-teal-100 text-teal-700" },
+                    Provincial: { label: "省级竞赛", color: "bg-sky-100 text-sky-700" },
+                    University: { label: "校级竞赛", color: "bg-emerald-100 text-emerald-700" },
                 },
                 footer: { updated: "最后更新于：" }
             }
         };
 
-        let currentLang = 'en'; 
+        let currentLang = 'en';
 
         function updatePage() {
             const content = data[currentLang];
-            
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
+            document.getElementById('hero-affiliation').textContent = currentLang === 'zh' ? '软件工程 · 吉林大学' : 'Software Engineering · Jilin University';
+            document.getElementById('group-meeting-label').textContent = currentLang === 'zh' ? '组会汇报' : 'Group Meeting';
+
             const navHtml = `
-                <a href="#home" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.home}</a>
-                <a href="#about" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.about}</a>
-                <a href="#projects" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.projects}</a>
-                <a href="#key-awards" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.keyAwards}</a>
-                <a href="#all-awards" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.allAwards}</a>
+                <a href="#home" class="text-slate-700 hover:text-teal-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.home}</a>
+                <a href="#about" class="text-slate-700 hover:text-teal-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.about}</a>
+                <a href="#projects" class="text-slate-700 hover:text-teal-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.projects}</a>
+                <a href="#key-awards" class="text-slate-700 hover:text-teal-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.keyAwards}</a>
+                <a href="#all-awards" class="text-slate-700 hover:text-teal-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.allAwards}</a>
             `;
             document.getElementById('nav-links').innerHTML = navHtml;
             document.getElementById('lang-btn-text').textContent = currentLang === 'en' ? '中文' : 'EN';
@@ -350,49 +395,49 @@
             document.getElementById('edu-master-time').textContent = content.edu.master.time;
             document.getElementById('edu-master-major').textContent = content.edu.master.degree;
             document.getElementById('edu-master-lab').textContent = content.edu.master.lab;
-            
+
             document.getElementById('edu-bachelor-school').textContent = content.edu.bachelor.school;
             document.getElementById('edu-bachelor-time').textContent = content.edu.bachelor.time;
             document.getElementById('edu-bachelor-major').textContent = content.edu.bachelor.degree;
             document.getElementById('edu-bachelor-gpa').textContent = content.edu.bachelor.gpa;
 
             document.getElementById('research-desc').innerHTML = content.researchDesc;
-            document.getElementById('tech-tags').innerHTML = content.tags.map(tag => 
-                `<span class="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs text-indigo-300">${tag}</span>`
+            document.getElementById('tech-tags').innerHTML = content.tags.map(tag =>
+                `<span class="px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-xs text-teal-700">${tag}</span>`
             ).join('');
 
             document.getElementById('project-container').innerHTML = content.projects.map(p => `
-                <div class="glass-card rounded-2xl p-6 hover:bg-slate-800/80 transition-all duration-300 group hover:-translate-y-2 border-t-4 border-t-transparent hover:border-t-indigo-500">
+                <div class="glass-card rounded-2xl p-6 hover:bg-teal-50/80 transition-all duration-300 group hover:-translate-y-2 border-t-4 border-t-transparent hover:border-t-indigo-500">
                     <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold text-slate-100 group-hover:text-indigo-400 transition-colors">${p.title}</h3>
-                        <a href="${p.link}" class="text-slate-500 hover:text-white"><i class="fa-brands fa-github text-xl"></i></a>
+                        <h3 class="text-xl font-bold text-slate-900 group-hover:text-teal-700 transition-colors">${p.title}</h3>
+                        ${p.link && p.link !== "#" ? `<a href="${p.link}" aria-label="GitHub: ${p.title}" target="_blank" rel="noopener noreferrer" class="text-teal-700"><i class="fa-brands fa-github text-xl" aria-hidden="true"></i></a>` : ""}
                     </div>
-                    <div class="text-xs font-mono text-purple-400 mb-4 bg-purple-500/10 inline-block px-2 py-1 rounded">${p.tech}</div>
-                    <p class="text-slate-400 text-sm leading-relaxed">${p.desc}</p>
+                    <div class="text-xs font-mono text-teal-700 mb-4 bg-teal-600/10 inline-block px-2 py-1 rounded">${p.tech}</div>
+                    <p class="text-slate-600 text-sm leading-relaxed">${p.desc}</p>
                 </div>
             `).join('');
 
             // 渲染重要获奖
             const keyAwardsColors = {
-                National: "bg-purple-500/20 text-purple-400",
-                Provincial: "bg-blue-500/20 text-blue-400"
+                National: "bg-teal-100 text-teal-700",
+                Provincial: "bg-sky-100 text-sky-700"
             };
             const keyAwardsLevelLabels = {
                 National: "国家级",
                 Provincial: "省级"
             };
             document.getElementById('key-awards-container').innerHTML = content.keyAwards.map(a => `
-                <div class="glass-card p-6 rounded-2xl hover:bg-slate-800/80 transition-all duration-300 group hover:-translate-y-1 border-l-4 ${a.level === 'National' ? 'border-l-purple-500' : 'border-l-blue-500'}">
+                <div class="glass-card p-6 rounded-2xl hover:bg-teal-50/80 transition-all duration-300 group hover:-translate-y-1 border-l-4 ${a.level === 'National' ? 'border-l-teal-600' : 'border-l-blue-500'}">
                     <div class="flex items-start gap-4">
-                        <div class="${a.level === 'National' ? 'bg-purple-500/10 text-purple-400' : 'bg-blue-500/10 text-blue-400'} p-3 rounded-full flex-shrink-0">
+                        <div class="${a.level === 'National' ? 'bg-teal-600/10 text-teal-700' : 'bg-blue-500/10 text-sky-700'} p-3 rounded-full flex-shrink-0">
                             <i class="fa-solid fa-trophy text-xl"></i>
                         </div>
                         <div class="flex-1">
                             <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
-                                <h3 class="text-lg font-bold text-white group-hover:text-indigo-400 transition-colors">${a.title}</h3>
+                                <h3 class="text-lg font-bold text-slate-900 group-hover:text-teal-700 transition-colors">${a.title}</h3>
                                 <span class="px-2 py-0.5 rounded-full text-xs font-medium ${keyAwardsColors[a.level]}">${currentLang === 'zh' ? keyAwardsLevelLabels[a.level] : a.level}</span>
                             </div>
-                            <p class="text-slate-400 text-sm">${a.desc}</p>
+                            <p class="text-slate-600 text-sm">${a.desc}</p>
                         </div>
                     </div>
                 </div>
@@ -403,13 +448,13 @@
                 const cat = content.awardCategories[a.category];
                 return `
                 <div class="relative">
-                    <span class="absolute -left-[41px] top-1.5 h-4 w-4 rounded-full border-4 border-slate-900 bg-indigo-500"></span>
-                    <div class="glass-card p-5 rounded-xl hover:bg-slate-800 transition-all duration-300 group">
+                    <span class="absolute -left-[41px] top-1.5 h-4 w-4 rounded-full border-4 border-white bg-teal-600"></span>
+                    <div class="glass-card p-5 rounded-xl hover:bg-teal-50 transition-all duration-300 group">
                         <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
-                            <span class="font-mono text-sm text-indigo-400 font-semibold">${a.time}</span>
+                            <span class="font-mono text-sm text-teal-700 font-semibold">${a.time}</span>
                             <span class="px-2 py-0.5 rounded-full text-xs font-medium ${cat.color}">${cat.label}</span>
                         </div>
-                        <p class="text-slate-200 text-sm leading-relaxed">${a.title}</p>
+                        <p class="text-slate-700 text-sm leading-relaxed">${a.title}</p>
                     </div>
                 </div>
             `}).join('');
@@ -424,7 +469,7 @@
         }
 
         updatePage();
-        
+
         const date = new Date(document.lastModified);
         const year = date.getFullYear();
         const month = (date.getMonth() + 1).toString().padStart(2, '0');
