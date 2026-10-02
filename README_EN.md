@@ -13,4 +13,3 @@ This repository hosts my personal academic homepage.
 
 - JLU Email: mengyuanw26@mails.jlu.edu.cn
 - Gmail: mengyuanwang374@gmail.com
-- 

@@ -13,4 +13,3 @@ English index: [README_EN.md](./README_EN.md)
 
 - 吉林大学邮箱: mengyuanw26@mails.jlu.edu.cn
 - Gmail: mengyuanwang374@gmail.com
-- 
