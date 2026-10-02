@@ -136,11 +136,22 @@
         </div>
     </section>
 
-    <section id="awards" class="py-20 bg-slate-900/50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="key-awards" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
                 <span class="w-2 h-8 bg-yellow-500 rounded mr-4"></span>
-                <span id="section-awards-title">Honors & Awards</span>
+                <span id="section-key-awards-title">Key Honors & Awards</span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6" id="key-awards-container">
+                </div>
+        </div>
+    </section>
+
+    <section id="all-awards" class="py-20 bg-slate-900/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
+                <span class="w-2 h-8 bg-slate-500 rounded mr-4"></span>
+                <span id="section-all-awards-title">All Awards</span>
             </h2>
             <div class="relative border-l-2 border-slate-700 ml-3 pl-8 space-y-8" id="awards-container">
                 </div>
@@ -169,7 +180,8 @@
                     edu: "Education",
                     research: "Research Interests",
                     projects: "Projects",
-                    awards: "Honors & Awards"
+                    keyAwards: "Key Honors & Awards",
+                    allAwards: "All Awards"
                 },
                 edu: {
                     master: { school: "Jilin University", time: "2026.09 - Present (First Year)", degree: "Academic M.S. in Software Engineering (First Year)", lab: "School of Software" },
@@ -190,6 +202,16 @@
                         desc: "Fine-tuned VITS model on a self-constructed multi-speaker Chinese dataset. Achieved a MOS of 4.0, implementing real-time TTS inference via Flask.",
                         link: "#"
                     }
+                ],
+                keyAwards: [
+                    { title: "National Scholarship (Top 0.2%)", desc: "2024.12", level: "National" },
+                    { title: "National Endeavor Scholarship", desc: "2023.12 & 2026.04", level: "National" },
+                    { title: "San Haosheng (Top Student) of Heilongjiang Province", desc: "2023.12 & 2026.05", level: "Provincial" },
+                    { title: "Outstanding Graduate of Heilongjiang Province", desc: "2026.06", level: "Provincial" },
+                    { title: "3rd Prize, National Market Research & Analysis Competition", desc: "2024.06 & 2025.05", level: "National" },
+                    { title: "1st Prize, National Math Modeling Contest (Provincial)", desc: "2024.11", level: "Provincial" },
+                    { title: "1st Prize, Northeast China Math Modeling League", desc: "2024.07", level: "Provincial" },
+                    { title: "2nd Prize, Blue Bridge Cup C/C++ (Provincial)", desc: "2024.04 & 2025.05", level: "Provincial" },
                 ],
                 awards: [
                     { time: "2026.06", title: "Outstanding Graduate of Heilongjiang Province", category: "Honor" },
@@ -234,7 +256,8 @@
                     edu: "教育背景",
                     research: "研究兴趣",
                     projects: "科研项目",
-                    awards: "荣誉奖项"
+                    keyAwards: "重要获奖",
+                    allAwards: "全部获奖"
                 },
                 edu: {
                     master: { school: "吉林大学", time: "2026.09 - 至今（一年级）", degree: "软件工程学术型硕士（一年级）", lab: "软件学院" },
@@ -255,6 +278,16 @@
                         desc: "基于喜马拉雅数据构建数据集，微调 VITS 模型。实现了端到端的高自然度中文语音合成，MOS 得分达到 4.0。",
                         link: "#"
                     }
+                ],
+                keyAwards: [
+                    { title: "国家奖学金（Top 0.2%）", desc: "2024.12", level: "National" },
+                    { title: "国家励志奖学金", desc: "2023.12 & 2026.04", level: "National" },
+                    { title: "黑龙江省三好学生", desc: "2023.12 & 2026.05", level: "Provincial" },
+                    { title: "黑龙江省优秀毕业生", desc: "2026.06", level: "Provincial" },
+                    { title: "正大杯全国大学生市场调查与分析大赛 国家级三等奖", desc: "2024.06 & 2025.05", level: "National" },
+                    { title: "全国大学生数学建模竞赛 省级一等奖", desc: "2024.11", level: "Provincial" },
+                    { title: "东北三省数学建模联赛一等奖", desc: "2024.07", level: "Provincial" },
+                    { title: "蓝桥杯C/C++程序设计 省级二等奖", desc: "2024.04 & 2025.05", level: "Provincial" },
                 ],
                 awards: [
                     { time: "2026.06", title: "黑龙江省优秀毕业生", category: "Honor" },
@@ -307,7 +340,8 @@
             document.getElementById('hero-bio').innerHTML = content.hero.bio;
             document.getElementById('section-about-title').textContent = content.sections.about;
             document.getElementById('section-projects-title').textContent = content.sections.projects;
-            document.getElementById('section-awards-title').textContent = content.sections.awards;
+            document.getElementById('section-key-awards-title').textContent = content.sections.keyAwards;
+            document.getElementById('section-all-awards-title').textContent = content.sections.allAwards;
             document.getElementById('edu-title').textContent = content.sections.edu;
             document.getElementById('research-title').textContent = content.sections.research;
 
@@ -337,6 +371,26 @@
                 </div>
             `).join('');
 
+            // 渲染重要获奖
+            const keyAwardsColors = {
+                National: "bg-purple-500/20 text-purple-400",
+                Provincial: "bg-blue-500/20 text-blue-400"
+            };
+            const keyAwardsLevelLabels = {
+                National: "国家级",
+                Provincial: "省级"
+            };
+            document.getElementById('key-awards-container').innerHTML = content.keyAwards.map(a => `
+                <div class="glass-card p-6 rounded-2xl hover:bg-slate-800/80 transition-all duration-300 group hover:-translate-y-1 border-l-4 ${a.level === 'National' ? 'border-l-purple-500' : 'border-l-blue-500'}">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-lg font-bold text-white group-hover:text-indigo-400 transition-colors">${a.title}</h3>
+                        <span class="px-2 py-0.5 rounded-full text-xs font-medium ${keyAwardsColors[a.level]}">${currentLang === 'zh' ? keyAwardsLevelLabels[a.level] : a.level}</span>
+                    </div>
+                    <p class="text-slate-400 text-sm">${a.desc}</p>
+                </div>
+            `).join('');
+
+            // 渲染全部获奖（时间线）
             document.getElementById('awards-container').innerHTML = content.awards.map(a => {
                 const cat = content.awardCategories[a.category];
                 return `
