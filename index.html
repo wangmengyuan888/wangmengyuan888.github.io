@@ -170,7 +170,7 @@
     <script>
         const data = {
             en: {
-                nav: { home: "Home", about: "About", projects: "Projects", awards: "Awards" },
+                nav: { home: "Home", about: "About", projects: "Projects", keyAwards: "Key Awards", allAwards: "All Awards" },
                 hero: {
                     name: "Mengyuan Wang",
                     bio: "Graduate of Northeast Agricultural University ➔ First-year Academic Master's Student in Software Engineering at Jilin University.<br>Research interests: <b>Computer Vision</b> and <b>Embodied AI</b>.",
@@ -246,7 +246,7 @@
             },
 
             zh: {
-                nav: { home: "首页", about: "关于", projects: "项目", awards: "奖项" },
+                nav: { home: "首页", about: "关于", projects: "项目", keyAwards: "重要获奖", allAwards: "全部获奖" },
                 hero: {
                     name: "王梦圆",
                     bio: "东北农业大学毕业生 ➔ 吉林大学软件学院软件工程学术型硕士一年级。<br>研究方向：<b>计算机视觉</b>与<b>具身智能</b>。",
@@ -331,7 +331,8 @@
                 <a href="#home" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.home}</a>
                 <a href="#about" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.about}</a>
                 <a href="#projects" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.projects}</a>
-                <a href="#awards" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.awards}</a>
+                <a href="#key-awards" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.keyAwards}</a>
+                <a href="#all-awards" class="text-slate-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">${content.nav.allAwards}</a>
             `;
             document.getElementById('nav-links').innerHTML = navHtml;
             document.getElementById('lang-btn-text').textContent = currentLang === 'en' ? '中文' : 'EN';
@@ -382,11 +383,18 @@
             };
             document.getElementById('key-awards-container').innerHTML = content.keyAwards.map(a => `
                 <div class="glass-card p-6 rounded-2xl hover:bg-slate-800/80 transition-all duration-300 group hover:-translate-y-1 border-l-4 ${a.level === 'National' ? 'border-l-purple-500' : 'border-l-blue-500'}">
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="text-lg font-bold text-white group-hover:text-indigo-400 transition-colors">${a.title}</h3>
-                        <span class="px-2 py-0.5 rounded-full text-xs font-medium ${keyAwardsColors[a.level]}">${currentLang === 'zh' ? keyAwardsLevelLabels[a.level] : a.level}</span>
+                    <div class="flex items-start gap-4">
+                        <div class="${a.level === 'National' ? 'bg-purple-500/10 text-purple-400' : 'bg-blue-500/10 text-blue-400'} p-3 rounded-full flex-shrink-0">
+                            <i class="fa-solid fa-trophy text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                                <h3 class="text-lg font-bold text-white group-hover:text-indigo-400 transition-colors">${a.title}</h3>
+                                <span class="px-2 py-0.5 rounded-full text-xs font-medium ${keyAwardsColors[a.level]}">${currentLang === 'zh' ? keyAwardsLevelLabels[a.level] : a.level}</span>
+                            </div>
+                            <p class="text-slate-400 text-sm">${a.desc}</p>
+                        </div>
                     </div>
-                    <p class="text-slate-400 text-sm">${a.desc}</p>
                 </div>
             `).join('');
 
