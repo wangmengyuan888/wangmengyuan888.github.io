@@ -137,12 +137,12 @@
     </section>
 
     <section id="awards" class="py-20 bg-slate-900/50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
                 <span class="w-2 h-8 bg-yellow-500 rounded mr-4"></span>
                 <span id="section-awards-title">Honors & Awards</span>
             </h2>
-            <div class="grid md:grid-cols-3 gap-6" id="awards-container">
+            <div class="relative border-l-2 border-slate-700 ml-3 pl-8 space-y-8" id="awards-container">
                 </div>
         </div>
     </section>
@@ -192,13 +192,34 @@
                     }
                 ],
                 awards: [
-                    "National Scholarship (Top 0.2%)",
-                    "National Endeavor Scholarship",
-                    "1st Prize, National Math Modeling (Provincial)",
-                    "1st Prize, Math Modeling League (Northeast)",
-                    "Blue Bridge Cup C/C++ (Provincial 2nd)",
-                    "Silver, NEAU Programming Contest"
+                    { time: "2026.06", title: "Outstanding Graduate of Heilongjiang Province", category: "Honor" },
+                    { time: "2026.05", title: "San Haosheng (Top Student) of Heilongjiang Province", category: "Honor" },
+                    { time: "2026.04", title: "National Endeavor Scholarship", category: "Scholarship" },
+                    { time: "2025.08", title: "Bronze Award, China International College Students' Innovation Competition (Heilongjiang)", category: "Provincial" },
+                    { time: "2025.05", title: "3rd Prize, National Market Research & Analysis Competition (National)", category: "National" },
+                    { time: "2025.05", title: "2nd Prize, Blue Bridge Cup C/C++ (Heilongjiang)", category: "Provincial" },
+                    { time: "2025.05", title: "Excellent Communist Youth League Member", category: "Honor" },
+                    { time: "2024.12", title: "National Scholarship (Top 0.2%)", category: "Scholarship" },
+                    { time: "2024.11", title: "1st Prize, National Undergraduate Mathematical Modeling Contest (Provincial)", category: "Provincial" },
+                    { time: "2024.09", title: "3rd Prize, NEAU Mathematics Competition (8th)", category: "University" },
+                    { time: "2024.07", title: "1st Prize, Northeast China Mathematical Modeling League", category: "Provincial" },
+                    { time: "2024.06", title: "3rd Prize, National Market Research & Analysis Competition (National)", category: "National" },
+                    { time: "2024.04", title: "2nd Prize, Blue Bridge Cup C/C++ (Heilongjiang)", category: "Provincial" },
+                    { time: "2024.04", title: "1st Prize, National Market Research & Analysis Competition (University)", category: "University" },
+                    { time: "2023.12", title: "National Endeavor Scholarship", category: "Scholarship" },
+                    { time: "2023.12", title: "San Haosheng (Top Student) of Heilongjiang Province", category: "Honor" },
+                    { time: "2023.12", title: "3rd Prize, National Undergraduate Mathematical Modeling Contest (Provincial)", category: "Provincial" },
+                    { time: "2023.11", title: "Silver Award, NEAU Programming Contest (10th)", category: "University" },
+                    { time: "2023.08", title: "1st Prize, NEAU Mathematical Modeling Contest", category: "University" },
+                    { time: "2023.06", title: "3rd Prize, NEAU Mathematics Competition (7th)", category: "University" },
                 ],
+                awardCategories: {
+                    Scholarship: { label: "Scholarship", color: "bg-yellow-500/20 text-yellow-400" },
+                    Honor: { label: "Honor", color: "bg-pink-500/20 text-pink-400" },
+                    National: { label: "National", color: "bg-purple-500/20 text-purple-400" },
+                    Provincial: { label: "Provincial", color: "bg-blue-500/20 text-blue-400" },
+                    University: { label: "University", color: "bg-green-500/20 text-green-400" },
+                },
                 footer: { updated: "Last Updated:" }
             },
 
@@ -236,13 +257,34 @@
                     }
                 ],
                 awards: [
-                    "国家奖学金",
-                    "国家励志奖学金",
-                    "全国大学生数学建模竞赛 省级一等奖",
-                    "东三省数学建模联赛 一等奖",
-                    "蓝桥杯C/C++程序设计 省级二等奖",
-                    "东北农业大学程序设计竞赛 银奖"
+                    { time: "2026.06", title: "黑龙江省优秀毕业生", category: "Honor" },
+                    { time: "2026.05", title: "黑龙江省三好学生", category: "Honor" },
+                    { time: "2026.04", title: "国家励志奖学金", category: "Scholarship" },
+                    { time: "2025.08", title: "中国国际大学生创新大赛（2025）黑龙江赛区铜奖", category: "Provincial" },
+                    { time: "2025.05", title: "正大杯第十五届全国大学生市场调查与分析大赛 国家级三等奖", category: "National" },
+                    { time: "2025.05", title: "第十六届蓝桥杯C/C++程序设计A组 黑龙江赛区二等奖", category: "Provincial" },
+                    { time: "2025.05", title: "优秀共青团员", category: "Honor" },
+                    { time: "2024.12", title: "国家奖学金", category: "Scholarship" },
+                    { time: "2024.11", title: "全国大学生数学建模竞赛 省级一等奖", category: "Provincial" },
+                    { time: "2024.09", title: "第八届东北农业大学数学竞赛三等奖", category: "University" },
+                    { time: "2024.07", title: "东北三省数学建模联赛一等奖", category: "Provincial" },
+                    { time: "2024.06", title: "正大杯第十四届全国大学生市场调查与分析大赛 国家级三等奖", category: "National" },
+                    { time: "2024.04", title: "第十五届蓝桥杯C/C++程序设计A组 黑龙江赛区二等奖", category: "Provincial" },
+                    { time: "2024.04", title: "正大杯第十四届全国大学生市场调查与分析大赛 校一等奖", category: "University" },
+                    { time: "2023.12", title: "国家励志奖学金", category: "Scholarship" },
+                    { time: "2023.12", title: "黑龙江省三好学生", category: "Honor" },
+                    { time: "2023.12", title: "全国大学生数学建模竞赛 省级三等奖", category: "Provincial" },
+                    { time: "2023.11", title: "东北农业大学第十届大学生程序设计竞赛银奖", category: "University" },
+                    { time: "2023.08", title: "东北农业大学数学建模竞赛一等奖", category: "University" },
+                    { time: "2023.06", title: "第七届东北农业大学数学竞赛三等奖", category: "University" },
                 ],
+                awardCategories: {
+                    Scholarship: { label: "奖学金", color: "bg-yellow-500/20 text-yellow-400" },
+                    Honor: { label: "荣誉称号", color: "bg-pink-500/20 text-pink-400" },
+                    National: { label: "国家级竞赛", color: "bg-purple-500/20 text-purple-400" },
+                    Provincial: { label: "省级竞赛", color: "bg-blue-500/20 text-blue-400" },
+                    University: { label: "校级竞赛", color: "bg-green-500/20 text-green-400" },
+                },
                 footer: { updated: "最后更新于：" }
             }
         };
@@ -295,14 +337,20 @@
                 </div>
             `).join('');
 
-            document.getElementById('awards-container').innerHTML = content.awards.map(a => `
-                <div class="glass-card p-4 rounded-xl flex items-center space-x-4 hover:bg-slate-800 transition-colors">
-                    <div class="bg-yellow-500/10 p-3 rounded-full text-yellow-500">
-                        <i class="fa-solid fa-trophy"></i>
+            document.getElementById('awards-container').innerHTML = content.awards.map(a => {
+                const cat = content.awardCategories[a.category];
+                return `
+                <div class="relative">
+                    <span class="absolute -left-[41px] top-1.5 h-4 w-4 rounded-full border-4 border-slate-900 bg-indigo-500"></span>
+                    <div class="glass-card p-5 rounded-xl hover:bg-slate-800 transition-all duration-300 group">
+                        <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                            <span class="font-mono text-sm text-indigo-400 font-semibold">${a.time}</span>
+                            <span class="px-2 py-0.5 rounded-full text-xs font-medium ${cat.color}">${cat.label}</span>
+                        </div>
+                        <p class="text-slate-200 text-sm leading-relaxed">${a.title}</p>
                     </div>
-                    <span class="text-slate-300 font-medium text-sm">${a}</span>
                 </div>
-            `).join('');
+            `}).join('');
 
             document.getElementById('last-updated-label').textContent = content.footer.updated;
             document.getElementById('year').textContent = new Date().getFullYear();
