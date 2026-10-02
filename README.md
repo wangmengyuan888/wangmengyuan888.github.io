@@ -1,14 +1,16 @@
-# Mengyuan Wang's Personal Homepage
+English index: [README_EN.md](./README_EN.md)
 
-This repository hosts my personal academic homepage.
+# 王梦圆的个人学术主页
 
-## 🔗 Links
+本仓库用于托管我的个人学术主页。
 
-- **Personal Homepage**: https://wangmengyuan888.github.io/
-- **Group Meeting Presentations**: https://github.com/wangmengyuan888/group-meeting-presentations
+## 🔗 相关链接
 
-## 📧 Contact
+- **个人主页**: https://wangmengyuan888.github.io/
+- **组会汇报仓库**: https://github.com/wangmengyuan888/group-meeting-presentations
 
-- JLU Email: mengyuanw26@mails.jlu.edu.cn
+## 📧 联系方式
+
+- 吉林大学邮箱: mengyuanw26@mails.jlu.edu.cn
 - Gmail: mengyuanwang374@gmail.com
 - 
